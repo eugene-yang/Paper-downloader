@@ -1,5 +1,5 @@
 {
-  "name": "jmlr-paper-downloader",
+  "name": "Paper-downloader",
   "version": "0.5.0",
   "description": "",
   "main": "run.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eugene2528/JMLR-paper-downloader.git"
+    "url": "git+https://github.com/eugene2528/Paper-downloader.git"
   },
   "author": "Eugene Yang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eugene2528/JMLR-paper-downloader/issues"
+    "url": "https://github.com/eugene2528/Paper-downloader/issues"
   },
-  "homepage": "https://github.com/eugene2528/JMLR-paper-downloader#readme"
+  "homepage": "https://github.com/eugene2528/Paper-downloader#readme"
 }
