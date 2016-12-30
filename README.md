@@ -1,4 +1,4 @@
-## Naive JMLR papers from official site
+## Naive paper downloader from official site
 
 ### Usage 
 ```javascript
