@@ -35,8 +35,13 @@ function _initGet(link, parse){
 }
 
 function _saver(targetDir, baseurl, url, authors, title){
-	if( url.indexOf("http://") == -1 )
-		url = baseurl + "/" + url
+	if( url.indexOf("http://") == -1 ){
+		if( url[0] == "/" )
+			url = _getDomain(baseurl) + url;
+		else{
+			url = baseurl + "/" + url
+		}
+	}
 
 	var fn = targetDir + "/(" + authors + ") " + title + ".pdf"
 	if( fs.existsSync(fn) )
@@ -46,12 +51,22 @@ function _saver(targetDir, baseurl, url, authors, title){
 		resp.pipe(file)
 		file.on('finish', () => {
 			file.close()
-			console.log( fn )
+			// console.log( fn )
 		}).on('error', (err) => {
 			fs.unlink(fn)
 			console.log( err )
 		})
 	} ).on("error", (e) => {
-		console.log(`Got error: ${e.message}`);
+		console.log(`Got error: ${e.message}`, link);
 	})
+}
+
+function _getDomain(url){
+	var protocal = "http://"
+	if( url.match(/.*\/\//g) !== null )
+		protocal = url.match(/.*\/\//g)[0]
+
+	url = url.replace(protocal, "");
+	return protocal + url.split("/")[0];
+
 }
